@@ -3,7 +3,13 @@ package com.capgemini.Chees;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class PawnBlackMoves The class has rules of moves of black pawn
+ */
 public class PawnBlackMoves {
+	/**
+	 * Static method that returns list of geometric possible moves from Field
+	 */
 	public static List<Move> getPossibleMoves(Field from) {
 		int toX, toY;
 		List<Move> possibleMoves = new ArrayList<Move>();
@@ -25,6 +31,10 @@ public class PawnBlackMoves {
 		return possibleMoves;
 	}
 
+	/**
+	 * Static method that returns true if there is no chessmen between Field
+	 * from and to,
+	 */
 	public static boolean checkTheWayPawnBlack(Board board, Field from, Field to) {
 		boolean free = true;
 		if (from.getX() == to.getX() && from.getY() == to.getY()) {
@@ -47,6 +57,9 @@ public class PawnBlackMoves {
 		return free;
 	}
 
+	/**
+	 * Static method that returns true if move is possible from Field, to Field
+	 */
 	public static boolean checkBlackPawnMove(Field from, Field to) throws IllegalStateException {
 		if (from.getX() == to.getX()) {
 			if ((from.getY() - to.getY() <= 2) && (from.getY() - to.getY() > 0)) {

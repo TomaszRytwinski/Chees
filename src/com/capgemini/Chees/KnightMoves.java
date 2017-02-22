@@ -2,8 +2,14 @@ package com.capgemini.Chees;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Class KnightMoves
+ * The class has rules of moves of knight 
+ */
 public class KnightMoves {
+	/**
+	 * Static method that returns list of geometric possible moves from Field 
+	 */
 	public static List<Move> getPossibleMoves(Field from) {
 		int toX, toY;
 		List<Move> possibleMoves = new ArrayList<Move>();
@@ -22,7 +28,9 @@ public class KnightMoves {
 		}
 		return possibleMoves;
 	}
-
+	/**
+	 * Static method that returns true if there is no chessmen, or there is chessmen of oposite color on to Field
+	 */
 	public static boolean checkTheWayKnight(Board board, Field to, String color) {
 		boolean allow = true;
 		int x = to.getX();
@@ -34,8 +42,10 @@ public class KnightMoves {
 		} else {
 			return true;
 		}
-
 	}
+	/**
+	 * Static method that returns true if move is possible from Field, to Field
+	 */
 	public static boolean checkKnightMove(Field from, Field to) throws IllegalStateException {
 		if (from.getX() == to.getX() && from.getY() == to.getY()) {
 			throw new IllegalStateException();

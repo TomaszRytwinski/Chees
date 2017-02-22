@@ -3,10 +3,16 @@ package com.capgemini.Chees;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class PossibleMoves used for creating list of possible moves
+ */
 public class PossibleMoves {
 	private List<Move> whitePossibleMoves = new ArrayList<Move>();
 	private List<Move> blackPossibleMoves = new ArrayList<Move>();
 
+	/**
+	 * The method creates list of possible moves
+	 */
 	public void createList(Board board) {
 		whitePossibleMoves.clear();
 		blackPossibleMoves.clear();
@@ -18,16 +24,13 @@ public class PossibleMoves {
 				}
 			}
 		}
-		//printlistWhite();
-		//System.out.println("");
-		//printlistBlack();
 	}
 
 	public List<Move> getWhiteList() {
 		return whitePossibleMoves;
 	}
 
-	public  List<Move> getBlackList() {
+	public List<Move> getBlackList() {
 		return blackPossibleMoves;
 	}
 
@@ -47,6 +50,9 @@ public class PossibleMoves {
 		this.whitePossibleMoves = whitePossibleMoves;
 	}
 
+	/**
+	 * The method creates list of possible moves of given chessman
+	 */
 	private void takeChessmannMoves(Board board, Chessman chessman, Field from) {
 		List<Move> tempPossible = new ArrayList<Move>();
 		switch (chessman.toString()) {
@@ -126,8 +132,7 @@ public class PossibleMoves {
 			tempPossible.clear();
 			tempPossible.addAll(KnightMoves.getPossibleMoves(from));
 			for (int i = 0; i < tempPossible.size(); i++) {
-				if (!KnightMoves.checkTheWayKnight(board, tempPossible.get(i).getTo(),
-						"WHITE")) {
+				if (!KnightMoves.checkTheWayKnight(board, tempPossible.get(i).getTo(), "WHITE")) {
 					tempPossible.remove(i);
 					i--;
 				}
@@ -138,8 +143,7 @@ public class PossibleMoves {
 			tempPossible.clear();
 			tempPossible.addAll(KnightMoves.getPossibleMoves(from));
 			for (int i = 0; i < tempPossible.size(); i++) {
-				if (!KnightMoves.checkTheWayKnight(board, tempPossible.get(i).getTo(),
-						"BLACK")) {
+				if (!KnightMoves.checkTheWayKnight(board, tempPossible.get(i).getTo(), "BLACK")) {
 					tempPossible.remove(i);
 					i--;
 				}
@@ -150,7 +154,7 @@ public class PossibleMoves {
 			tempPossible.clear();
 			tempPossible.addAll(QueenMoves.getPossibleMoves(from));
 			for (int i = 0; i < tempPossible.size(); i++) {
-				if (!ChessmanWalidator.checkTheWay(board, tempPossible.get(i).getFrom() , tempPossible.get(i).getTo(),
+				if (!ChessmanWalidator.checkTheWay(board, tempPossible.get(i).getFrom(), tempPossible.get(i).getTo(),
 						"WHITE")) {
 					tempPossible.remove(i);
 					i--;
@@ -162,7 +166,7 @@ public class PossibleMoves {
 			tempPossible.clear();
 			tempPossible.addAll(QueenMoves.getPossibleMoves(from));
 			for (int i = 0; i < tempPossible.size(); i++) {
-				if (!ChessmanWalidator.checkTheWay(board, tempPossible.get(i).getFrom() , tempPossible.get(i).getTo(),
+				if (!ChessmanWalidator.checkTheWay(board, tempPossible.get(i).getFrom(), tempPossible.get(i).getTo(),
 						"BLACK")) {
 					tempPossible.remove(i);
 					i--;
@@ -174,7 +178,7 @@ public class PossibleMoves {
 			tempPossible.clear();
 			tempPossible.addAll(RockMoves.getPossibleMoves(from));
 			for (int i = 0; i < tempPossible.size(); i++) {
-				if (!ChessmanWalidator.checkTheWay(board, tempPossible.get(i).getFrom() , tempPossible.get(i).getTo(),
+				if (!ChessmanWalidator.checkTheWay(board, tempPossible.get(i).getFrom(), tempPossible.get(i).getTo(),
 						"WHITE")) {
 					tempPossible.remove(i);
 					i--;
@@ -186,7 +190,7 @@ public class PossibleMoves {
 			tempPossible.clear();
 			tempPossible.addAll(RockMoves.getPossibleMoves(from));
 			for (int i = 0; i < tempPossible.size(); i++) {
-				if (!ChessmanWalidator.checkTheWay(board, tempPossible.get(i).getFrom() , tempPossible.get(i).getTo(),
+				if (!ChessmanWalidator.checkTheWay(board, tempPossible.get(i).getFrom(), tempPossible.get(i).getTo(),
 						"BLACK")) {
 					tempPossible.remove(i);
 					i--;
@@ -195,8 +199,7 @@ public class PossibleMoves {
 			blackPossibleMoves.addAll(tempPossible);
 			break;
 		}
-		
-		
+
 	}
 
 }

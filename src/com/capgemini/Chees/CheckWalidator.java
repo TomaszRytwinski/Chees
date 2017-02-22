@@ -1,10 +1,16 @@
 package com.capgemini.Chees;
 
 import java.util.List;
-
+/**
+ * Class CheckWalidator
+ * The class has rules of check position in the game 
+ */
 public class CheckWalidator {
-	public static boolean checkChecktoWhiteKing(Board board, List<Move> blackPossibleMoves){
-		Field kingsPos = new Field(-1,-1);
+	/**
+	 * The static method that check if white king is in the check position
+	 */
+	public static boolean checkChecktoWhiteKing(Board board, List<Move> blackPossibleMoves) throws IllegalStateException{
+		Field kingsPos = new Field(0,0);
 		boolean found=false;
 		int i=0;
 		int j=0;
@@ -18,6 +24,9 @@ public class CheckWalidator {
 				j=0;
 				i++;
 			}
+			if (i>=7 && j>=7){
+				throw new IllegalStateException();
+			}
 		}
 		while(!found);
 		for (i=0;i<blackPossibleMoves.size();i++){
@@ -27,8 +36,11 @@ public class CheckWalidator {
 		}
 		return false;
 	}
+	/**
+	 * The static method that check if black king is in the check position
+	 */
 	public static boolean checkChecktoBlackKing(Board board, List<Move> whitePossibleMoves){
-		Field kingsPos = new Field(-1,-1);
+		Field kingsPos = new Field(0,0);
 		boolean found=false;
 		int i=0;
 		int j=0;

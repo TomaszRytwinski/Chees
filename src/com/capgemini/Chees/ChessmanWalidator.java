@@ -1,6 +1,11 @@
 package com.capgemini.Chees;
-
+/**
+ * Class ChessmanWalidator triggers proper method during check of movements
+ */
 public class ChessmanWalidator {
+	/**
+	 * The method triggers method of given chessman. The method starts method that check moves geometry and the way.
+	 */
 	public static boolean checkMove(Board board, Field from, Field to) {
 		Chessman chessman = board.getChessmanXY(from.getY(), from.getX());
 		switch (chessman.toString()) {
@@ -80,7 +85,9 @@ public class ChessmanWalidator {
 		return false;
 	}
 	
-
+	/**
+	 * The method that checks the way of move for common chessman.
+	 */
 	public static boolean checkTheWay(Board board, Field from, Field to, String color) {
 		boolean free = true;
 		int i, j;

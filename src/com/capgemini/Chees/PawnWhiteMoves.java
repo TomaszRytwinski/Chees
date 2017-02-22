@@ -3,7 +3,13 @@ package com.capgemini.Chees;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class PawnWhiteMoves The class has rules of moves of white pawn
+ */
 public class PawnWhiteMoves {
+	/**
+	 * Static method that returns list of geometric possible moves from Field
+	 */
 	public static List<Move> getPossibleMoves(Field from) {
 		int toX, toY;
 		List<Move> possibleMoves = new ArrayList<Move>();
@@ -29,6 +35,10 @@ public class PawnWhiteMoves {
 		return possibleMoves;
 	}
 
+	/**
+	 * Static method that returns true if there is no chessmen between Field
+	 * from and to,
+	 */
 	public static boolean checkTheWayPawnWhite(Board board, Field from, Field to) {
 		boolean free = true;
 		if (from.getX() == to.getX() && from.getY() == to.getY()) {
@@ -51,6 +61,9 @@ public class PawnWhiteMoves {
 		return free;
 	}
 
+	/**
+	 * Static method that returns true if move is possible from Field, to Field
+	 */
 	public static boolean checkWhitePawnMove(Field from, Field to) throws IllegalStateException {
 		if (from.getX() == to.getX()) {
 			if ((to.getY() - from.getY() <= 2) && (to.getY() - from.getY() > 0)) {

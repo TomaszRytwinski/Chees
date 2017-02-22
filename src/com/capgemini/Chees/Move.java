@@ -1,5 +1,7 @@
 package com.capgemini.Chees;
-
+/**
+ * Class Move has variables needed to describe a move in chess
+ */
 public class Move {
 	private Field from;
 	private Field to;
