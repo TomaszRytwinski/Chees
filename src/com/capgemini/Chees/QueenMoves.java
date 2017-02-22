@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class QueenMoves {
 	public static List<Move> getPossibleMoves(Field from) {
-		Set <Move> possibleMovesSet = new HashSet<Move>();
+		Set<Move> possibleMovesSet = new HashSet<Move>();
 		List<Move> possibleMoves = new ArrayList<Move>();
 		possibleMovesSet.addAll(BishopMoves.getPossibleMoves(from));
 		possibleMovesSet.addAll(RockMoves.getPossibleMoves(from));
@@ -15,4 +15,11 @@ public class QueenMoves {
 		return possibleMoves;
 	}
 
+	public static boolean checkQueenMove(Field from, Field to) throws IllegalStateException {
+		if (RockMoves.checkRockMove(from, to))
+			return true;
+		if (BishopMoves.checkBishopMove(from, to))
+			return true;
+		return false;
+	}
 }

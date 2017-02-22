@@ -40,6 +40,25 @@ public class Board {
 		setBlackQueen();
 		setBlackKing();
 	}
+	public void setCheckStateToWhite(){
+		Field from = new Field(7,7);
+		Field to = new Field(5,4);
+		setWhiteRocks();
+		setWhiteKnights();
+		setWhiteBishops();
+		setWhiteQueen();
+		setWhiteKing();
+		setBlackRocks();
+		MoveChessmanFromTo(from,to);
+		setBlackKnights();
+		setBlackBishops();
+		setBlackQueen();
+		setBlackKing();
+	}
+	public void MoveChessmanFromTo(Field from, Field to){
+		chessBoard[to.getY()][to.getX()] = getChessmanXY(from.getY(),from.getX());
+		chessBoard[from.getY()][from.getX()] = new EmptyChessman();
+	}
 	public boolean getIsWhite(int x,int y){
 		return isWhite[x][y];
 	}

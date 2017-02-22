@@ -8,7 +8,7 @@ public class RockMoves {
 		int toX, toY;
 		List<Move> possibleMoves = new ArrayList<Move>();
 		for (int i = -7; i <= 7; i++) {
-			for (int j = -7; j <= +7; j++) {
+			for (int j = -7; j <= 7; j++) {
 				if (Board.checkOutOfBoard(from, i, j) && !(i == 0 && j == 0)) {
 					toX = j + from.getX();
 					toY = i + from.getY();
@@ -21,6 +21,17 @@ public class RockMoves {
 			}
 		}
 		return possibleMoves;
+	}
+
+	public static boolean checkRockMove(Field from, Field to) throws IllegalStateException {
+		if (from.getX() == to.getX() && from.getY() == to.getY()) {
+			throw new IllegalStateException();
+		} else if (from.getX() == to.getX()) {
+			return true;
+		} else if (from.getY() == to.getY()) {
+			return true;
+		} else
+			return false;
 	}
 
 }

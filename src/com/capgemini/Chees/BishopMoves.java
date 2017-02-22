@@ -20,4 +20,13 @@ public class BishopMoves {
 		}
 		return possibleMoves;
 	}
+	public static boolean checkBishopMove(Field from, Field to) throws IllegalStateException {
+		if (from.getX() == to.getX() && from.getY() == to.getY()) {
+			throw new IllegalStateException();
+		}
+		if (Math.abs(from.getX() - to.getX()) == Math.abs(from.getY() - to.getY())) {
+			return true;
+		}
+		return false;
+	}
 }

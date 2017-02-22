@@ -9,21 +9,21 @@ import org.junit.Test;
 public class PawnBlackMovesTest {
 	Field from;
 	@Test
-	public void shouldReturn5possibleMovesFor04postion() {
+	public void shouldReturn3possibleMovesFor74postion() {
 		List<Move> possibleMoves = new ArrayList<Move>();
 		Field from= new Field(7,4);
 		possibleMoves.addAll(PawnBlackMoves.getPossibleMoves(from));
 		Assert.assertEquals(4, possibleMoves.size());
 	}
 	@Test
-	public void shouldReturn3possibleMovesFor00postion() {
+	public void shouldReturn2possibleMovesFor70postion() {
 		List<Move> possibleMoves = new ArrayList<Move>();
 		Field from= new Field(7,0);
 		possibleMoves.addAll(PawnBlackMoves.getPossibleMoves(from));
 		Assert.assertEquals(3, possibleMoves.size());
 	}
 	@Test
-	public void shouldReturn8possibleMovesFor44postion() {
+	public void shouldReturn3possibleMovesFor44postion() {
 		List<Move> possibleMoves = new ArrayList<Move>();
 		Field from= new Field(4,4);
 		possibleMoves.addAll(PawnBlackMoves.getPossibleMoves(from));
@@ -32,8 +32,8 @@ public class PawnBlackMovesTest {
 	@Test
 	public void shouldReturn3possibleMovesFor77postion() {
 		List<Move> possibleMoves = new ArrayList<Move>();
-		Field from= new Field(0,7);
+		Field from= new Field(7,7);
 		possibleMoves.addAll(PawnBlackMoves.getPossibleMoves(from));
-		Assert.assertEquals(0, possibleMoves.size());
+		Assert.assertEquals(3, possibleMoves.size());
 	}
 }
